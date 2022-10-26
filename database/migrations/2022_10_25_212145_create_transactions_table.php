@@ -19,6 +19,7 @@ return new class extends Migration
 
             $table->unsignedBigInteger('wallet_id')->index();
             $table->bigInteger('amount');
+            $table->string('reference_id', 11);
 
             $table->foreign('wallet_id')->references('id')->on(Tables::WALLETS)->onDelete('cascade');
 

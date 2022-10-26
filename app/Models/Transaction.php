@@ -14,7 +14,8 @@ class Transaction extends Model
      */
     protected $fillable = [
         'wallet_id',
-        'amount'
+        'amount',
+        'reference_id'
     ];
 
     /**
