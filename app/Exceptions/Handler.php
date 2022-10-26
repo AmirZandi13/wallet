@@ -47,7 +47,7 @@ class Handler extends ExceptionHandler
             //
         });
 
-        $this->renderable(function (\Exception $e, $request) {
+        $this->renderable(function (BaseException $e, $request) {
             return response()->json([
                 'message' => $e->getMessage(),
                 'errors' => []

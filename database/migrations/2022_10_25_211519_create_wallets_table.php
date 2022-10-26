@@ -17,7 +17,7 @@ return new class extends Migration
         Schema::create(Tables::WALLETS, function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('user_id')->index();
+            $table->unsignedBigInteger('user_id')->unique()->index();
             $table->bigInteger('balance')->default(0);
 
             $table->timestamps();

@@ -5,15 +5,15 @@ namespace App\Exceptions;
 use App\Constants\Errors;
 use Symfony\Component\HttpFoundation\Response;
 
-class UnauthorizedException extends BaseException
+class UserHasNotEnoughBalanceException extends BaseException
 {
     /**
      * @var string
      */
-    protected $message = Errors::UNAUTHORIZED;
+    protected $message = Errors::USER_HAS_NOT_ENOUGH_BALANCE;
 
     /**
      * @var string
      */
-    protected $code = Response::HTTP_UNAUTHORIZED;
+    protected $code = Response::HTTP_BAD_REQUEST;
 }
