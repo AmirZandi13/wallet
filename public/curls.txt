@@ -1,0 +1,18 @@
+Get Balance:
+
+curl --location --request GET 'localhost:8080/api/wallet/get-balance?user_id=1' \
+--header 'Accept: application/json' \
+--header 'Authorization: Bearer something' \
+--header 'Cookie: csrftoken=F1ySUHVoE7tSP92rs6LUk9FcOg14KGuSMrzuuH3srkODfDiUeAsuJPI7NwXyVyCg'
+
+
+Add Money:
+
+curl --location --request POST 'localhost:8080/api/wallet/add-money' \
+--header 'Authorization: Bearer something' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: csrftoken=F1ySUHVoE7tSP92rs6LUk9FcOg14KGuSMrzuuH3srkODfDiUeAsuJPI7NwXyVyCg' \
+--data-raw '{
+    "user_id": 1,
+    "amount": 2000
+}'
