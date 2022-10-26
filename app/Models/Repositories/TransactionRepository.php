@@ -3,9 +3,13 @@
 namespace App\Models\Repositories;
 
 use App\Models\Transaction;
+use Carbon\Carbon;
 
 class TransactionRepository extends BaseRepository
 {
+    /**
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
+     */
     public function __construct()
     {
         parent::__construct(app()->make(Transaction::class));
@@ -26,5 +30,21 @@ class TransactionRepository extends BaseRepository
         ]);
 
         return $transaction;
+    }
+
+    /**
+     * @param Carbon $fromDate
+     * @param Carbon $toDate
+     *
+     * @return int
+     */
+    public function getAmountOfTransactions(Carbon $fromDate, Carbon $toDate): int
+    {
+        $totalAmount = $this->model
+            ->where('created_at', '>', $fromDate)
+            ->where('created_at', '<', $toDate)
+            ->sum('amount');
+
+        return $totalAmount;
     }
 }
